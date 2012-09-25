@@ -5,6 +5,6 @@ import "os"
 func main() {
 	var user = os.Getenv("USER")
 	if user == "" {
-        panic("no value for $USER")
-    }
+		panic("no value for $USER")
+	}
 }

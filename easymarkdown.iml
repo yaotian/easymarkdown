@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="false">
+    <output url="file://$MODULE_DIR$/bin" />
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/server" isTestSource="false" />
+      <excludeFolder url="file://$MODULE_DIR$/src" />
+    </content>
+    <orderEntry type="jdk" jdkName="Go sdk go1.0.2" jdkType="Google Go SDK" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>
+
