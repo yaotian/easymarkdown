@@ -31,7 +31,9 @@ func (server *EasyServer) ServeHTTP(w http.ResponseWriter, r *http.Request){
     	fmt.Printf("%q\n",strings.Split(r.URL.Path,"/open/")[1])
     	contents,_ := ioutil.ReadFile(server.folder+"/"+strings.Split(r.URL.Path,"/open/")[1])
     	fmt.Printf("contents"+string(contents))
-    	fmt.Fprint(w,string(contents))
+    	t,_ := template.New("foo").Parse(`{{define "T"}}<html><head><link href="https://raw.github.com/gcollazo/mou-theme-github2/master/GitHub2.css" media="screen" rel="stylesheet" type="text/css"></head><body><pre style="word-wrap: break-word; white-space: pre-wrap;">{{.}}</pre></body></html>{{end}}`)
+		t.ExecuteTemplate(w, "T", template.HTML(string(contents)))
+ 	
     	return
     }
     
@@ -45,8 +47,8 @@ func admin(w http.ResponseWriter, r *http.Request,folder string){
 }
 
 func index(w http.ResponseWriter, r *http.Request,folder string){
-	r.ParseForm()  //解析参数，默认是不会解析的
-	fmt.Println(r.Form)  //这些信息是输出到服务器端的打印信息
+	r.ParseForm()  
+	fmt.Println(r.Form) 
 	fmt.Println("path", r.URL.Path)
 	fmt.Println("scheme", r.URL.Scheme)
 	fmt.Println(r.Form["url_long"])
